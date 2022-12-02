@@ -91,5 +91,7 @@ page-mathjax: false
 # Friends
 friends:
   [
-    { title: "刺桐说知识星球", href: "https://public.zsxq.com/groups/28855458552411" },
+    { title: "Wind", href: "https://www.wind.com.cn/" },
+    { title: "华泰证券", href: "https://www.htsc.com.cn/" },
+    { title: "知识星球", href: "https://www.zsxq.com/" },
   ]
