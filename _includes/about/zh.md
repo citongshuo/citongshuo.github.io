@@ -1,35 +1,102 @@
-Hey，我是黄玄（a.k.a. Hux, _@huxpro_），一个略懂计算机科学与艺术的斜杆不动青年，自诩是一个[广院](https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E4%BC%A0%E5%AA%92%E5%A4%A7%E5%AD%A6)数字媒体艺术系与 RIT 计算机科学系（师从 [Prof. Matthew Fluet](https://www.cs.rit.edu/~mtf/) 专攻编程语言）杂交出来的[黑客与画家](https://book.douban.com/subject/6021440/)。
+##### 简介
 
-现为 <del>Facebook</del> Meta 签约软件工程师，就职于开源技术<del>网红</del>团队 [React](https://beta.reactjs.org/community/meet-the-team#react-core)，曾参与 [Hermes JavaScript 引擎](https://hermesengine.dev/)，[ReasonML](https://reasonml.github.io/) (现 [ReScript](https://rescript-lang.org/))，以及 [Reality Labs](https://tech.fb.com/ar-vr/) 某保密项目等。在国内期间，曾被招募为阿里巴巴 · [阿里旅行（飞猪）](http://alitrip.com)· 前端工程师、微影时代 · 微票儿 · 前端基础设施工程团队负责人、[饿了么](https://ele.me/) · 大前端团队 · [PWA 顾问](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509) 等。
+刺桐说是一个专业、严谨、务实的投资者社群，社群成员来自券商、基金、期货、银行等金融机构。
+
+我们在知识星球一起交流市场观点、分享交易复盘、共享投研资源、开放实盘组合、共创投研小组。
+
+我们相信一群人聚在一起，可以创造超越个体的价值。欢迎志同道合的投资者加入，一起学习成长！
 
 
-目前的物理活动范围主要在美帝纽约与硅谷，也想当个数字游<del>民</del>侠。虚拟分身日常出没于[微博](https://weibo.com/huxpro)、[知乎](https://www.zhihu.com/people/huxpro/pins/posts)、[B站](https://space.bilibili.com/43271611)、[Instagram](https://www.instagram.com/huxpro/)、[推特](https://twitter.com/Huxpro/)、[Github](https://github.com/huxpro) 等。
+##### 一、前言
 
-##### 演讲与分享
+社群所有内容专题和使用说明都会更新在这里。
 
-- [React Labs: What We've Been Working On – June 2022][12] · React Blog
-- [React Without Memo][11] · [React Conf 2021](https://conf.reactjs.org/)
-- [Toward Hermes being the Default][11] · React Native Blog · 2021
-- React Native 0.64 with Hermes for iOS · [The RN Show Podcast Ep #5](https://www.callstack.com/podcast-react-native-show) · 2021
-- [Upgrading to Progressive Web Apps][9] · [JSConf CN 上海 2017](http://2017.jsconf.cn/)
-- Building Progressive Web Apps · [CSDI 广州 2017](http://www.csdisummit.com/)
-- The State of Progressive Web App · GDG IO Redux 北京 2017
-- 炒冷饭 · PWA 到底是个什么玩意？· Baidu HQ 北京 2017
-- [Service Worker 101][5] · GDG DevFest 北京 2016
-- [Progressive Web App，复兴序章][4] · [QCon 上海 2016](http://2016.qconshanghai.com/presentation/3111)
-- Progressive Web App 之我见 · GDG IO Redux 北京 2016
-- [CSS Still Sucks 2015][2] · 2015
-- [JavaScript 模块化七日谈][1] · 2015
+社群内的老伙计们帮忙招呼一下新来的伙计们。
 
-[1]: //huangxuan.me/2015/07/09/js-module-7day/
-[2]: //huangxuan.me/2015/12/28/css-sucks-2015/
-[3]: //huangxuan.me/2016/06/05/pwa-in-my-pov/
-[4]: //huangxuan.me/2016/10/20/pwa-qcon2016/
-[5]: //huangxuan.me/2016/11/20/sw-101-gdgdf/
-[6]: https://yanshuo.io/assets/player/?deck=58ac8598b123db0067292f92 "PWA Rehashing"
-[7]: https://yanshuo.io/assets/player/?deck=593ad6fbfe88c2006a0a0d6d "The State of PWA"
-[8]: https://yanshuo.io/assets/player/?deck=594d673d570c357d0698a950 "Building PWA"
-[9]: //huangxuan.me/jsconfcn2017/
-[10]: https://reactnative.dev/blog/2021/10/26/toward-hermes-being-the-default
-[11]: https://youtu.be/lGEMwh32soc
-[12]: https://reactjs.org/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022.html
+新加入或不太熟悉社群的成员请详细阅读本文。
+
+
+##### 二、市场观点
+
+社群常驻嘉宾定期分享不同角度的市场观点：
+
+嘉宾<No.1>：十年私募投资经验，擅长指数投资策略研究。目前担任刺桐说投资社群主理人。
+
+嘉宾<No.25>：容飞投研创始人，拥有十多年股票投资经验。擅长通过市场情绪，资金流向挖掘行业板块与题材概念。
+
+嘉宾<江湖菜菜>：十年资管工作经验，擅长宏观对冲策略研究。
+
+嘉宾<贤小儿>：知名券商持牌投顾，第四届新财富最佳投资顾问Top50。拥有十多年股票投资经验，擅长股票多主观头策略研究。
+
+嘉宾<GY>：保险资金投资从业人员，金融风险管理师（FRM）持证人。曾就职于穆迪、德勤及安永，擅长数学建模及量化分析。
+
+嘉宾<云想衣裳花想容>：金融财务分析师，管理千万级自营资金。拥有十多年股票投资经验，擅长股票多空策略研究。
+
+嘉宾<roye>：私募股权投资人，管理千万级家族基金。拥有十多年股票投资经验，擅长股票主观多头策略研究。
+
+嘉宾<Matthew Mo*>：私募基金经理，管理千万级私募基金。拥有十多年证券投资经验，擅长股票多空策略研究。
+
+嘉宾<佳佳>：机构投资总监，管理千万级自营资金。拥有十多年股票投资经验，擅长股票主观多头策略研究。
+
+嘉宾<一库哥>：指数投资资深发烧友，拥有丰富的股市投资经验。擅长通过技术分析、市场情绪挖掘市场交易机会，进行周期轮动及择时交易。
+
+除了社群常驻嘉宾外，社群成员也会发布自己的市场观点和投资看法。
+
+
+##### 三、交易复盘
+
+社群常驻嘉宾定期分享不同类型的投资策略：
+
+①券商、银行等卖方机构持证投资顾问分享投资策略与实盘组合
+
+②基金、私募等买方机构持证投资经理分享投资策略与实盘组合
+
+③欢迎社群成员在不涉及“非法推荐股票、基金、期货”的前提下，分享个人的交易复盘总结。
+
+
+##### 四、投研资源
+
+获得投研资源的支持，可以显著提升选股择时的胜率。
+
+投研资源可以帮助个人跟踪市场动态并发掘交易机会。
+
+社群鼓励成员推广自己设计的商业化投资研究工具。
+
+也鼓励成员分享自己投资相关的调研纪要和研究报告。
+
+**精品研报：**
+- [行业轮动策略专题研报：][11]
+[11]: https://t.zsxq.com/05Mz3FEyZ
+- [量化配置系列专题研报：][12]
+[12]: https://t.zsxq.com/05YZJI2Ba
+- [量化多因子系列专题研报：][13]
+[13]: https://t.zsxq.com/05a27eIaU
+- [基本面量化系列专题研报：][14]
+[14]: https://t.zsxq.com/05eQr3BMZ
+
+
+社群内定期会发起读书活动，主要以经典投资书籍为主。
+
+**推荐书单：**
+《股票大作手回忆录  (美)埃德温·勒菲弗》
+《聪明的投资者  (美)本杰明·格雷厄姆》
+《逃不开的经济周期  (挪)拉斯·特维德》
+《对冲基金风云录 (美)巴顿·比格斯》
+
+
+##### 五、圆桌会议
+
+[社群成员定期召开的内部网络研讨会详见：][1]
+[1]: https://t.zsxq.com/06NRJeqJ2
+
+
+##### 六、实盘组合
+
+[社群成员分享的投资策略和实盘组合详见：][2]
+[2]: https://t.zsxq.com/03EYvfaQ7
+
+
+##### 七、投研小组
+
+[社群成员自发形成的高水平交流圈子详见：][3]
+[3]: https://t.zsxq.com/05jYZBi6Y
