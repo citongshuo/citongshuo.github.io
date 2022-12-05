@@ -13,11 +13,11 @@ future: true
 
 # SNS settings
 RSS: false
-#weibo_username: huxpro
-#zhihu_username: huxpro
-#github_username: huxpro
-#twitter_username: huxpro
-#facebook_username:  huxpro
+#weibo_username: xxx
+#zhihu_username: xxx
+#github_username: xxx
+#twitter_username: xxx
+#facebook_username:  xxx
 #linkedin_username:  firstname-lastname-idxxxx
 
 # Build settings
@@ -59,7 +59,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-#disqus_username: hux
+#disqus_username: xxx
 
 # Netease settings
 netease_comment: false
