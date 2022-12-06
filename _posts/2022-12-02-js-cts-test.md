@@ -2,6 +2,7 @@
 layout:       post
 title:        "惊泥量化投研系统标准版"
 author:       "二哥聊指数"
+header-bg-css: "#060608"
 header-style: text
 catalog:      true
 tags:
