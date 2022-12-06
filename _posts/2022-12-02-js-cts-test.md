@@ -2,10 +2,10 @@
 layout: post
 title: "惊泥量化投研系统社群版"
 subtitle: "刺桐说量化投研系统基于通达信官方软件构建"
-author:  "二哥聊指数"
+author: "Hux"
 header-img: "img/post-bg-infinity.jpg"
-header-style: text
-catalog:      true
+header-mask: 0.3
+mathjax: true
 tags:
     - 投研资源
     - 量化投资
