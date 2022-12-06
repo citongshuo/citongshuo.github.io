@@ -24,7 +24,7 @@
 
 {% if include.type == 'post' %}
 {% if page.header-style == 'text' %}
-<header class="intro-header style-text" >
+<header class="intro-header style-text" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');background: {% if page.header-bg-css %}{{ page.header-bg-css }}{% else %}{{ site.header-bg-css }}{% endif %}">
 {% else %}
 <header class="intro-header" >
 {% endif %}
