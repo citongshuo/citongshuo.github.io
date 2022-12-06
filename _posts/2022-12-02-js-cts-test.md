@@ -3,7 +3,6 @@ layout: post
 title: "惊泥量化投研系统社群版"
 subtitle: "刺桐说量化投研系统基于通达信官方软件构建"
 author: "二哥聊指数"
-header-bg-css: "#060608"
 header-mask: 0.3
 mathjax: true
 tags:
