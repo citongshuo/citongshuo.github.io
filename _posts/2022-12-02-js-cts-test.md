@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "惊泥量化投研系统标准版"
+title: "惊泥量化投研系统社群版"
+subtitle: "刺桐说量化投研系统基于通达信官方软件构建"
 author:  "二哥聊指数"
 header-img: "img/post-bg-infinity.jpg"
 header-style: text
