@@ -93,7 +93,7 @@ page-mathjax: false
 # Friends
 friends:
   [
-    { title: "Wind", href: "https://www.wind.com.cn/" },
+    { title: "Wind", href: "https://www.wind.com.cn/portal/zh/WFT/index.html" },
     { title: "Choice", href: "https://choice.eastmoney.com/" },
     { title: "通达信", href: "https://www.tdx.com.cn/" },
     { title: "PTrade", href: "http://121.41.137.161:9091/hub/help/api#API文档" },
