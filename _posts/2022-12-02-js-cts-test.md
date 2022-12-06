@@ -1,10 +1,11 @@
 ---
-layout:       post
-title:        "惊泥量化投研系统标准版"
-author:       "二哥聊指数"
+layout: post
+title: "惊泥量化投研系统标准版"
+author:  "二哥聊指数"
 header-bg-css: "#060608"
 header-style: text
 catalog:      true
+mathjax: true
 tags:
     - 投研资源
     - 量化投资
