@@ -94,6 +94,8 @@ page-mathjax: false
 friends:
   [
     { title: "Wind", href: "https://www.wind.com.cn/" },
+    { title: "Choice", href: "https://choice.eastmoney.com/" },
+    { title: "PTrade", href: "http://121.41.137.161:9091/hub/help/api#API文档" },
+    { title: "QMT", href: "http://docs.thinktrader.net/vip/QMT/#QMT" },
     { title: "华泰证券", href: "https://www.htsc.com.cn/" },
-    { title: "知识星球", href: "https://www.zsxq.com/" },
   ]
