@@ -1,4 +1,9 @@
 _site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
 _posts/_draft
 _posts/_archive
 _archive
@@ -8,6 +13,5 @@ node_modules
 *.lock
 *.sh
 .DS_Store
-.jekyll-cache
 */.DS_Store
 */*/.DS_Store
