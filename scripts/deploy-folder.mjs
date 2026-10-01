@@ -43,12 +43,52 @@ async function ensureServiceEnabled(client) {
   }
 }
 
+// 删除代码版本，用于回收未被使用的版本
+async function deleteCodeVersion(client, name, codeVersion) {
+  await client.deleteRoutineCodeVersion(
+    new Esa20240910.DeleteRoutineCodeVersionRequest({ name, codeVersion })
+  );
+}
+
+// 清理历史遗留的 Init 版本：这类版本由上传中断产生，永远不会被发布，却持续占用套餐配额。
+// 只清理 30 分钟前的，避免误删正在进行的部署
+async function pruneStaleVersions(client, name) {
+  try {
+    const res = await client.listRoutineCodeVersions(
+      new Esa20240910.ListRoutineCodeVersionsRequest({ name })
+    );
+    const cutoff = Date.now() - 30 * 60 * 1000;
+    const stale = (res.body?.codeVersions || []).filter((v) => {
+      const created = Date.parse(v.createTime || "");
+      return (
+        String(v.status || "").toLowerCase() === "init" &&
+        Number.isFinite(created) &&
+        created < cutoff
+      );
+    });
+    if (!stale.length) return;
+    for (const v of stale) {
+      try {
+        await deleteCodeVersion(client, name, v.codeVersion);
+        console.log(`Pruned stale code version ${v.codeVersion}.`);
+      } catch (e) {
+        console.warn(`Failed to prune ${v.codeVersion}: ${e.message}`);
+      }
+    }
+  } catch (e) {
+    console.warn(`Version pruning skipped: ${e.message}`);
+  }
+}
+
 async function deployFolder(name, folderPath, description = "") {
   const client = createClient();
   const runtime = new TeaUtil.RuntimeOptions({});
 
   // 0. Ensure Edge Routine service is enabled
   await ensureServiceEnabled(client);
+
+  // 0.1 回收历史遗留的 Init 版本，避免耗尽套餐的版本配额
+  await pruneStaleVersions(client, name);
 
   // 1. Create routine
   console.log(`Creating routine: ${name}...`);
@@ -138,8 +178,10 @@ async function deployFolder(name, folderPath, description = "") {
   };
 
   console.log("Uploading to OSS...");
-  const uploadAttempts = 3;
-  const uploadTimeoutMs = 180000; // 单次 180s：慢速 runner 上 120s 会中断 18MB 的包
+  // 上传用的 OSS policy 有效期约 5 分钟，重试总耗时必须压在有效期内，
+  // 否则后续重试只会拿到 Policy expired。2 × 120s + 10s 退避 = 250s
+  const uploadAttempts = 2;
+  const uploadTimeoutMs = 120000;
   let uploadError = null;
   for (let attempt = 1; attempt <= uploadAttempts; attempt++) {
     const controller = new AbortController();
@@ -171,6 +213,13 @@ async function deployFolder(name, folderPath, description = "") {
     }
   }
   if (uploadError) {
+    // 上传失败的版本永远不会被发布，留在云端只会白占配额，需即时回收
+    try {
+      await deleteCodeVersion(client, name, codeVersion);
+      console.log(`Rolled back unused code version ${codeVersion}.`);
+    } catch (e) {
+      console.warn(`Failed to roll back code version ${codeVersion}: ${e.message}`);
+    }
     throw new Error(
       `Upload to OSS failed after ${uploadAttempts} attempts: ${uploadError.message}`
     );
