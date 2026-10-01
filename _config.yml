@@ -36,6 +36,13 @@ exclude:
     "package.json",
     "README.md",
     "README.zh.md",
+    "scripts",
+    "esa.jsonc",
+    "netlify.toml",
+    "vercel.json",
+    "mise.toml",
+    "package-lock.json",
+    "历史文章.zip",
   ]
 anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
