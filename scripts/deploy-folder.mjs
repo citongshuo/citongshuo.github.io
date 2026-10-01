@@ -123,22 +123,57 @@ async function deployFolder(name, folderPath, description = "") {
   const zipBuffer = await zip.generateAsync({ type: "nodebuffer" });
   console.log(`Zip size: ${(zipBuffer.length / 1024).toFixed(1)} KB`);
 
+  // 每次重试都需要重新构造表单，避免复用已消费的请求体
+  const buildUploadForm = () => {
+    const formData = new FormData();
+    formData.append("OSSAccessKeyId", ossConfig.OSSAccessKeyId);
+    formData.append("Signature", ossConfig.Signature);
+    formData.append("policy", ossConfig.Policy);
+    formData.append("key", ossConfig.Key);
+    if (ossConfig.XOssSecurityToken) {
+      formData.append("x-oss-security-token", ossConfig.XOssSecurityToken);
+    }
+    formData.append("file", new Blob([zipBuffer]));
+    return formData;
+  };
+
   console.log("Uploading to OSS...");
-  const formData = new FormData();
-  formData.append("OSSAccessKeyId", ossConfig.OSSAccessKeyId);
-  formData.append("Signature", ossConfig.Signature);
-  formData.append("policy", ossConfig.Policy);
-  formData.append("key", ossConfig.Key);
-  if (ossConfig.XOssSecurityToken) {
-    formData.append("x-oss-security-token", ossConfig.XOssSecurityToken);
+  const uploadAttempts = 3;
+  const uploadTimeoutMs = 180000; // 单次 180s：慢速 runner 上 120s 会中断 18MB 的包
+  let uploadError = null;
+  for (let attempt = 1; attempt <= uploadAttempts; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), uploadTimeoutMs);
+    try {
+      const res = await fetch(ossConfig.Url, {
+        method: "POST",
+        body: buildUploadForm(),
+        signal: controller.signal,
+      });
+      if (res.ok) {
+        console.log(`Upload done (attempt ${attempt}, HTTP ${res.status}).`);
+        uploadError = null;
+        break;
+      }
+      // 失败时 OSS 返回非 2xx 并附带 XML 错误体，读取后可定位原因
+      const detail = (await res.text()).slice(0, 200).replace(/\s+/g, " ");
+      uploadError = new Error(`HTTP ${res.status} ${detail}`);
+    } catch (e) {
+      uploadError = e;
+    } finally {
+      clearTimeout(timer);
+    }
+    console.warn(`Upload attempt ${attempt}/${uploadAttempts} failed: ${uploadError.message}`);
+    if (attempt < uploadAttempts) {
+      const waitMs = attempt * 5000;
+      console.log(`Retrying in ${waitMs / 1000}s...`);
+      await new Promise((r) => setTimeout(r, waitMs));
+    }
   }
-  formData.append("file", new Blob([zipBuffer]));
-  const controller = new AbortController();
-  const uploadTimeout = setTimeout(() => controller.abort(), 120000); // 120s timeout for large files
-  try {
-    await fetch(ossConfig.Url, { method: "POST", body: formData, signal: controller.signal });
-  } finally {
-    clearTimeout(uploadTimeout);
+  if (uploadError) {
+    throw new Error(
+      `Upload to OSS failed after ${uploadAttempts} attempts: ${uploadError.message}`
+    );
   }
 
   // 4. Wait for build ready
